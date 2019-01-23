@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="/">
+      <img src="{{ asset('images/logo.png') }}" width="110" height="110" class="d-inline-block align-top" alt="">
+      <h1 style="display:inline;">Women Only</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ path('app_home') }}" title="Accueil">Accueil</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_comment_ca_marche') }}" title="Comment ça marche !">Comment ça marche !</a>
+        </li>
+                <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_proposer') }}" title="Vos propositions">Proposez</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_rechercher') }}" title="Vos recherches">Recherchez</a>
+        </li>
+        {% if app.user == null %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_register') }}" title="Vous inscrire">Inscription</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_login') }}" title="Vous connecter">Connexion</a>
+        </li>
+        {% endif %}
+        {% if app.user != null %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_profile') }}" title="Mon compte">Mon compte</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_logout') }}" title="Déconnexion">Déconnexion</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>

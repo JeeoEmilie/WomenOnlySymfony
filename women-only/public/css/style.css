@@ -1,0 +1,285 @@
+/*{
+    box-sizing: border-box;
+}
+
+body {
+    /* Pas de min-height pour un body */
+    /*min-height: 200%;*/
+    /* pas de largeur non plus cela ce faisait dans le temps ! */
+    /*width: 750px;*/
+    /* Le padding se met sur les elements et non sur le body */
+    /*padding: 10px 10px 10px 10px;
+    margin: 0 auto ;
+    background-color: #FFFFFF;
+
+    color: #1D8A99;
+    font-family: Arial, sans-serif;
+}
+
+a {
+    color: #1D8A99;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    color: red;
+}
+
+p {
+    margin: 0 0 10px;
+    font-size: 18px;
+}
+
+/*header {
+    background: #B0E0E6;
+    height: 209px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    text-align: center;
+    font-size : 4.4em;
+    box-shadow: 0px 0px 0px orange;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 30px;
+}
+h1 {
+    text-align: center;
+    font-size : 4.5em;
+    color : black;
+    font-family: 'lobster', sans-serif;
+    /*border-bottom: 2px orange solid;*/
+    /*box-shadow: 0px 20px 0px orange
+
+}
+h1:hover {
+    color: #9400D3;
+}
+
+header nav {
+    padding-top: 35px;
+}
+
+header nav ul {
+    text-align: center;
+}
+
+/* les boutons du menu en haut
+header nav li {
+    display : inline;
+    padding : 10px;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background-color: white;
+}
+
+footer{
+    margin-top: 20px;
+}
+
+footer nav ul {
+    text-align: center;
+}
+
+/* les boutons du menu en bas
+footer nav li {
+    display : inline;
+    padding : 10px;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+    background-color: #B0E0E6;
+}
+
+/* logo du site
+#logo {
+    float: left;
+    padding-right: 10px;
+}
+
+
+.HomeBlock-inner {
+    position: relative;
+    width: 990px;
+    padding: 48px 0;
+    margin: 0 auto;
+}
+
+.HomeBlock-media {
+    display: table;
+    padding-bottom: 48px;
+}
+
+.HomeBlock-media--primary .HomeBlock-image {
+    width: 544px;
+}
+.HomeBlock-media .HomeBlock-image {
+    display: block;
+    height: 320px;
+    vertical-align: middle;
+}
+.HomeBlock-image {
+    position: relative;
+    min-width: 450px;
+    min-height: 240px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    border-radius: 4px;
+}
+
+.HomeBlock-media--primary .HomeBlock-content {
+    width: 356px;
+}
+.HomeBlock-media .HomeBlock-content--even {
+    padding-left: 52px;
+}
+.HomeBlock-media .HomeBlock-content {
+    display: table-cell;
+    padding: 0;
+    height: 100%;
+    vertical-align: middle;
+}
+.HomeBlock-content {
+    padding: 0 0 24px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.HomeBlock-title {
+    padding: 0 0 24px;
+    margin: 0;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.u-space-4 {
+    margin-bottom: 16px !important;
+}
+.u-marginNone {
+    margin: 0 !important;
+}
+.HomeBlock-media--primary .HomeBlock-content {
+    width: 486px;
+}
+
+.HomeBlock-media .HomeBlock-content--even {
+    padding-left: 25px;
+}
+/*class intro
+.intro {
+    text-align: center;
+}
+
+.intro img {
+    float: left;
+    padding-left: 10px;
+}
+
+
+
+form fieldset {
+    background: #FAEBD7;
+}
+
+.contact input {
+    text-align: center;
+    height: 100px;
+    width: 200px;
+}
+
+.col-form-label input {
+    display: block;
+    width: 250px;
+    float: left;
+}
+
+.cgu {
+    text-align: center;
+    font-family: Arial;
+    font-size: 5px;
+
+}
+
+p {
+    text-align: center;
+    font-family: Arial;
+}
+
+.connexion input {
+    text-align: center;
+    height: 100px;
+    width: 200px;
+}
+
+.inscription input {
+    text-align: center;
+    height: 100px;
+    width: 200px;
+}
+
+.intro {
+    text-align: center;
+}
+
+.intro img {
+    float: left;
+    padding-left: 10px;
+}
+*/
+/*
+.nav-item{
+    background-color: #B0E0E6;
+    margin: 10px;
+    }*/
+
+    html {
+      position: relative;
+      min-height: 100%;
+      font-family: cambria;
+  }
+
+  body {
+    font-size: 1.2rem;
+    font-family: cambria;
+    margin-bottom: 60px;
+
+}
+
+.navbar{
+    background-color: #e3f2fd;
+}
+
+ul.navbar-nav {
+    margin: auto !important;
+}
+
+.main-container {
+    margin-top: 15px;
+    padding-bottom: 15px;
+}
+
+.nav-item{
+    margin:0 10px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+}
+
+/*Police : font-family: cambria
