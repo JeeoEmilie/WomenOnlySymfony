@@ -17,11 +17,6 @@ class Annonce
     private $id;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $datedAt;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $description;
@@ -58,22 +53,20 @@ class Annonce
      */
     private $placeNumber;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $title;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $arrivalDate;
+
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getDatedAt(): ?\DateTimeInterface
-    {
-        return $this->datedAt;
-    }
-
-    public function setDatedAt(\DateTimeInterface $datedAt): self
-    {
-        $this->datedAt = $datedAt;
-
-        return $this;
     }
 
     public function getDescription(): ?string
@@ -156,6 +149,30 @@ class Annonce
     public function setPlaceNumber(?int $placeNumber): self
     {
         $this->placeNumber = $placeNumber;
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    public function getArrivalDate(): ?\DateTimeInterface
+    {
+        return $this->arrivalDate;
+    }
+
+    public function setArrivalDate(\DateTimeInterface $arrivalDate): self
+    {
+        $this->arrivalDate = $arrivalDate;
 
         return $this;
     }

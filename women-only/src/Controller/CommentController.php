@@ -14,6 +14,6 @@ class CommentController extends AbstractController
     public function indexAction()
     {
 		// Nom du repertoire/Nom du fichier
-        return $this->render('comment/comment.html.twig');
+        return $this->render('comment.html.twig');
     }
 }
