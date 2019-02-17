@@ -1,0 +1,6 @@
+App\Entity\Reponse:
+  reponses{0..300}:
+    informations: '<text()>'
+    annonce: '@annonces*'
+    user: '@user*'
+    participe: '<randomElement([0, 1])>'

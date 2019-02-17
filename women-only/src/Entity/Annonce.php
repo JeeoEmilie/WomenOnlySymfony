@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -62,6 +64,16 @@ class Annonce
      * @ORM\Column(type="datetime")
      */
     private $arrivalDate;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Reponse", mappedBy="annonce")
+     */
+    private $reponses;
+
+    public function __construct()
+    {
+        $this->reponses = new ArrayCollection();
+    }
 
 
     public function getId(): ?int
@@ -173,6 +185,37 @@ class Annonce
     public function setArrivalDate(\DateTimeInterface $arrivalDate): self
     {
         $this->arrivalDate = $arrivalDate;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reponse[]
+     */
+    public function getReponses(): Collection
+    {
+        return $this->reponses;
+    }
+
+    public function addReponse(Reponse $reponse): self
+    {
+        if (!$this->reponses->contains($reponse)) {
+            $this->reponses[] = $reponse;
+            $reponse->setAnnonce($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReponse(Reponse $reponse): self
+    {
+        if ($this->reponses->contains($reponse)) {
+            $this->reponses->removeElement($reponse);
+            // set the owning side to null (unless already changed)
+            if ($reponse->getAnnonce() === $this) {
+                $reponse->setAnnonce(null);
+            }
+        }
 
         return $this;
     }

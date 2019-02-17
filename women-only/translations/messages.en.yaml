@@ -1,0 +1,68 @@
+header:
+  logo: "Women Only"
+  accueil:
+    title: "Home page"
+    name: "Home"
+  comment:
+    title: "How it works !"
+    name: "How it works !"
+  proposer:
+    title: "Suggest a new route !"
+    name: "Suggest a trip !"
+  rechercher:
+    title: "Search a trip !"
+    name: "Search a trip!"
+  login:
+    title: "You connect"
+    name: "Log in"
+  profile:
+    title: "My account"
+    name: "My account"
+  user:
+    title: "Member Administration"
+    name: "Member Administration"
+  logout:
+    title: "Sign Out"
+    name: "Sign Out"
+  register:
+    title: "Registration"
+    name: "Registration"
+
+footer:
+  faq:
+    title: "Frequently Asked Questions"
+    name: "FAQ"
+  qui:
+    title: "Who are we !"
+    name: "Who are we !"
+  contact:
+    title: "Write us"
+    name: "Contact"
+  mentions:
+    title: "Legal notices"
+    name: "Legal notices and CGU"
+
+index:
+  title: "Women Only"
+  descriptionLine1: "Women Only is a cooperative application that will allow you to move serenely between women. The app is for women who want to travel or just to be accompanied by other women. You will discover on our website ads from other members who offer different routes, whether by car, bus, tram, train, plane or why not just for a few steps in the street. "
+  descriptionLine2: "Come share this new experience with us!"
+
+comment:
+  title: "You want to move with confidence!"
+  descriptionLine1: "The operation of our site is very simple, it will allow you to deposit or consult the proposed services.
+                                              For that, some clicks are enough !"
+  descriptionLine2: "You must complete the questionnaire by clicking on the registration button."
+  descriptionLine3: "You will receive a confirmation email that must be confirmed."
+  descriptionLine4: "Welcome among us, you can use the services offered."
+
+qui:
+  title: "Women Only"
+  descriptionLine1: "Our site is for girls who want to approach a destination in an active way. WOMEN ONLY is a participatory and community implementation application
+                          relationship of women wishing to travel only with other women to feel confident whatever the time and day."
+  descriptionLine2: "Come share this new experience with us!"
+
+register:
+  title: "Registration"
+  pseudo:
+    label: "Pseudo"
+    help: "ex: Micky"

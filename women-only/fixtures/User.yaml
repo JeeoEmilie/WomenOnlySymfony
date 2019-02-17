@@ -1,0 +1,17 @@
+App\Entity\User:
+  user1:
+      nom: 'Riboulet'
+      prenom: 'Emilie' 
+      password: '\$argon2i\$v=19\$m=1024,t=2,p=2\$WUg4dmkxRHEwNmluVDlIMw\$M0M2a0kklo6p6sGl1qJFv35runXCkOyCstmbHs6u7J8'
+      email: 'jeeo-family@hotmail.fr'
+      pseudo: 'Jeeo'
+      birthdate: <(new \DateTime('1982-09-02'))>
+      roles: '[ROLE_USER, ROLE_SUPER_ADMIN, ROLE_ADMIN]'
+  user{2..9}:
+      nom: '<lastName()>'
+      prenom: '<firstName()>'
+      password: '<password()>'
+      email: '<email()>'
+      pseudo: '<word()>'
+      birthdate: '<dateTime()>'
+      roles: '[ROLE_USER]'

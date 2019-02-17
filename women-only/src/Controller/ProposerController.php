@@ -1,5 +1,5 @@
 <?php
-// src/Controller/ProposerController.php
+// src/Controller/ContactController.php
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
@@ -24,8 +24,11 @@ class ProposerController extends AbstractController
             return $this->redirectToRoute('app_login');
     	}
 
-    	// Creer l'objet du formulaire
+    	// Creer l'objet du formulaire à la date d'aujourd'hui
         $annonce = new Annonce();
+        $annonce->setStartdate(new \DateTime());
+        $annonce->setArrivalDate(new \DateTime());
+
 
          // Creer le formulaire a partir de la class annonce (fichier Form/AnnonceType.php)
         $form = $this->createForm(AnnonceType::class, $annonce);

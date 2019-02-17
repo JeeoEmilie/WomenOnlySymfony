@@ -1,0 +1,42 @@
+{# templates/modification.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Women only{% endblock %}
+
+{% block body %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+
+            <h5 class="card-header"> {{ annonce.title }} </h5>
+
+            <div class="card-body">
+
+                <p class="card-text">{{ annonce.startplace }} - {{ annonce.startdate|date('d/m/y H:m') }}</p>
+
+                <p class="card-text">{{ annonce.placearrived }} - {{ annonce.arrivalDate|date('d/m/y H:m') }}</p>
+
+                <h4 class="card-title">Description de l'annonce:</h4>
+
+                <p class="card-text">{{ annonce.description }}</p>
+
+            </div>
+        </div>
+
+            <div class="card-body">
+
+                <!-- Génére le formulaire -->
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+{% endblock %}

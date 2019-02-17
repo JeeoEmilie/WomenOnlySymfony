@@ -31,7 +31,7 @@
             <!-- Instruction de boucle pour les templates -->
             {% for item in annonces %}
             <!-- Code Bootsstrap pour mettre visualiser les annonces -->
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="{{ path('app_annonce', { 'id': item.id }) }}" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">{{ item.startplace }} - {{ item.placearrived }}</h5>
                     <small>{{ item.startdate|date('d/m/y H:m') }} - {{ item.arrivalDate|date('d/m/y H:m') }}</small>

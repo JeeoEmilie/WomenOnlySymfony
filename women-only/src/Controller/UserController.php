@@ -5,6 +5,8 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Form\ProfilType;
+use App\Repository\AnnonceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,6 +15,9 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\File;
+
 
 class UserController extends AbstractController
 {
@@ -166,8 +171,53 @@ class UserController extends AbstractController
     /**
      * @Route("/profile", name="app_profile")
      */
-    public function profile(): Response
+    public function profile(Request $request, AnnonceRepository $repository): Response
     {
-        return $this->render('user/profile.html.twig', []);
+        // Récupère l'utilisateur actuellement connecter
+        $user = $this->getUser();
+
+        // Récupère les annonces de l'utilisateur
+        $annonces = $repository->findBy(array('user' => $user));
+
+         // Creer le formulaire a partir de la class user (fichier Form/ProfilType.php)
+        $form = $this->createForm(ProfilType::class, $user);
+
+        // Lié le formulaire a la page
+        $form->handleRequest($request);
+
+        // Verifie si le formulaire a été envoyé & valide
+        if ($form->isSubmitted() && $form->isValid()) {
+
+/*
+            // Recupere l'avatar uploadé
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file /
+            $file = $user->getAvatarFile();
+
+            var_dump($file);
+
+            // Genere le nom du fichier
+            $fileName = md5(uniqid()) . '.' . $file->guessExtension();
+
+            // Transfere l'avatar vers le dossier des avatars
+            $file->move(
+                $this->getParameter('avatars_directory'),
+                $fileName
+            );
+
+            // Met a jour le nom du fichier avatar
+            $user->setAvatar($fileName);  
+            */
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+
+            return $this->redirectToRoute('app_profile');            
+        }
+       
+        return $this->render('user/profile.html.twig', [
+            'form' => $form->createView(),
+            'annonces' => $annonces
+        ]);
     }
 }

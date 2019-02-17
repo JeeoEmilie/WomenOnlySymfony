@@ -69,9 +69,26 @@ class User implements UserInterface
      */
     private $pseudo;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Reponse", mappedBy="user")
+     */
+    private $reponses;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     * 
+     */
+    private $avatar;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $birthdate;
+
     public function __construct()
     {
         $this->annonces = new ArrayCollection();
+        $this->reponses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -240,6 +257,61 @@ class User implements UserInterface
     public function setPseudo(string $pseudo): self
     {
         $this->pseudo = $pseudo;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Reponse[]
+     */
+    public function getReponses(): Collection
+    {
+        return $this->reponses;
+    }
+
+    public function addReponse(Reponse $reponse): self
+    {
+        if (!$this->reponses->contains($reponse)) {
+            $this->reponses[] = $reponse;
+            $reponse->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReponse(Reponse $reponse): self
+    {
+        if ($this->reponses->contains($reponse)) {
+            $this->reponses->removeElement($reponse);
+            // set the owning side to null (unless already changed)
+            if ($reponse->getUser() === $this) {
+                $reponse->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?string $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getBirthdate(): ?\DateTimeInterface
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(\DateTimeInterface $birthdate): self
+    {
+        $this->birthdate = $birthdate;
 
         return $this;
     }

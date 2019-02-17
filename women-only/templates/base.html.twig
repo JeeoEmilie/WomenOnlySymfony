@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Women only{% endblock %}</title>
-		<!-- pour que รงa fonctionne sur tous les appareils mobiles-->
+		<!-- pour que ca fonctionne sur tous les appareils mobiles-->
 		<meta name="viewport" content="width=device-width"/>
 
         {% block stylesheets %}
@@ -16,6 +16,34 @@
     	{% include '_partial/header.html.twig' %}
 
 		<div class="container main-container">
+
+			{% for label, flashes in app.session.flashbag.all %}
+				{% for flash in flashes %}
+					{% if ( label == 'success' ) %}
+						<div class="alert alert-success alert-dismissible fade show">
+							{{ flash }}
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					{% elseif ( label == 'notice' ) %}
+						<div class="alert alert-info alert-dismissible fade show">
+							{{ flash }}
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					{% elseif ( label == 'error' ) %}
+						<div class="alert alert-danger alert-dismissible fade show">
+							{{ flash }}
+							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+
 			{% block body %}{% endblock %}
 		</div>
 

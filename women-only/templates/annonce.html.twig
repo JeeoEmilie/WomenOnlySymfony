@@ -1,0 +1,101 @@
+{# templates/rechercher.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Women only{% endblock %}
+
+{% block body %}
+
+<div class="row">
+ <div class="col-12">
+<div class="card">
+   
+      <h5 class="card-header">
+          {{ annonce.title }}
+      </h5>
+
+      <div class="card-body">
+          <div class="float-right">{{ annonce.user.pseudo }} (??)</div>
+      		
+      	<p class="card-text">{{ annonce.startplace }} - {{ annonce.startdate|date('d/m/y H:m') }}</p>
+      	
+      	<p class="card-text">{{ annonce.placearrived }} - {{ annonce.arrivalDate|date('d/m/y H:m') }}</p>
+      	
+      	<h4 class="card-title">Description de l'annonce:</h4>
+    	
+    	<p class="card-text">{{ annonce.description }}</p>
+
+      </div>
+    </div>
+
+
+     <!-- Permet d'afficher les réponses lorsque c'est l'annonce de l'utilisateur -->
+     {% if app.user != null and app.user.id == annonce.user.id and reponses %}
+  <div class="card">
+   
+      <h5 class="card-header">Les réponses</h5>
+      <div class="card-body">
+            <!-- Instruction de boucle pour les templates -->
+            {% for item in reponses %}
+            <!-- Code Bootsstrap pour mettre visualiser les annonces -->
+
+          <p class="card-text">{{ item.user.prenom }} -
+              {% if item.informations == 0 %}
+                  Demande de participation
+              {% else %}
+                  Demande d'informations complémentaires
+              {% endif %}</p>
+          <p class="card-text">{{ item.informations }}</p>
+
+            {% endfor %}
+          {% if not reponses %}
+              <p class="card-text">Aucune réponse pour le moment.</p>
+          {% endif %}
+      </div>
+        </div>
+     {% endif %}
+
+     {% if app.user != null and userReponses %}
+         <div class="card">
+
+             <h5 class="card-header">Mes réponses</h5>
+             <!-- Instruction de boucle pour les templates -->
+             {% for item in userReponses %}
+                 <!-- Code Bootsstrap pour mettre visualiser les annonces -->
+
+                 <div class="d-flex w-100 justify-content-between">
+                     <h5 class="mb-1">{{ item.user.prenom }} - {{ item.participe }} - {{ item.informations }}</h5>
+
+                 </div>
+
+
+             {% endfor %}
+         </div>
+     {% endif %}
+
+<!-- Permet de ne pas afficher le questionnaire lorsque c'est l'annonce de l'utilisateur -->
+     {% if app.user != null and app.user.id != annonce.user.id  %}
+<div class="card">
+
+            <h5 class="card-header">
+                Répondre à l'annonce:
+            </h5>
+
+            <div class="card-body">
+
+                <!-- Génére le formulaire -->
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+     {% endif %}
+
+
+
+    </div>
+
+
+</div>
+
+{% endblock %}

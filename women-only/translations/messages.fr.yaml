@@ -1,0 +1,68 @@
+header:
+    logo: "Women Only"
+    accueil:
+        title: "Page d'accueil"
+        name: "Accueil"
+    comment:
+        title: "Comment ça marche !"
+        name: "Comment ça marche !"
+    proposer:
+        title: "Proposer un nouveau trajet !"
+        name: "Proposer un trajet !"
+    rechercher:
+        title: "Rechercher un trajet !"
+        name: "Rechercher un trajet!"
+    login:
+         title: "Vous connectez"
+         name: "Connexion"
+    profile:
+        title: "Mon compte"
+        name: "Mon compte"
+    user:
+        title: "Administration des membres"
+        name: "Admin des membres"
+    logout:
+        title: "Déconnexion"
+        name: "Déconnexion"
+    register:
+        title: "Inscription"
+        name: "Inscription"
+
+footer:
+    faq:
+        title: "Foire aux questions"
+        name: "FAQ"
+    qui:
+        title: "Qui sommes-nous"
+        name: "Qui sommes-nous"
+    contact:
+        title: "Nous écrire"
+        name: "Contact"
+    mentions:
+        title: "Mentions legales"
+        name: "Mentions légales et CGU"
+
+index:
+    title: "Women Only"
+    descriptionLine1: "Women Only est une application coopérative qui va vous permettre de vous déplacer sereinement entres femmes. L'application s'adresse aux femmes qui souhaitent voyager ou simplement être accompagnée par d'autres femmes. Vous découvrirez sur notre site des annonces d'autres membres qui proposent différents trajets, que ce soit en voiture, en bus, en tram, en train, en avion ou pourquoi pas juste pour quelques pas dans la rue."
+    descriptionLine2: "Venez partager cette nouvelle expérience avec nous !"
+
+comment:
+    title: "Vous souhaitez vous déplacer en toute confiance !"
+    descriptionLine1: "Le fonctionnement de notre site est tout simple, cela vous permettra de déposer ou de consulter les services proposés.
+                        Pour cela quelques clics suffisent !"
+    descriptionLine2: "Il faut remplir le questionnaire en cliquant sur le bouton inscription."
+    descriptionLine3: "Vous recevez ensuite un mail de confirmation qu'il faudra VALIDER."
+    descriptionLine4: "Bienvenue parmi nous, vous pouvez utiliser les services proposés."
+
+qui:
+    title: "Women Only"
+    descriptionLine1: "Notre site s’adressent aux filles qui désirent aborder une destination de manière active. WOMEN ONLY est une application participative et communautaire de mise en
+    relation des femmes souhaitant se déplacer uniquement en compagnie d’autres femmes pour se sentir en confiance quel que soit l’heure et le jour."
+    descriptionLine2: "Venez partager cette nouvelle expérience avec nous !"
+
+register:
+    title: "Inscription"
+    pseudo:
+        label: "Pseudo"
+        help: "ex: Micky"

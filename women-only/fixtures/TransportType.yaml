@@ -1,0 +1,23 @@
+App\Entity\TransportType:
+  transportType1:
+      name: 'Train'
+      showPlaceNumber: 'false'
+  transportType2:
+      name: 'Tram'
+      showPlaceNumber: 'false'
+  transportType3:
+      name: 'Bus'
+      showPlaceNumber: 'false'
+  transportType4:
+      name: 'Avion'
+      showPlaceNumber: 'false'
+  transportType5:
+      name: 'Voiture'
+      showPlaceNumber: 'true'
+  transportType6:
+      name: 'A pied'
+      showPlaceNumber: 'false'
+  transportType7:
+      name: 'Loisirs'
+      showPlaceNumber: 'false'
+  

@@ -1,10 +1,50 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Votre profil</h1>
+<h1>Votre profil</h1>
 
-    <p>Votre nom : <em>{{ app.user.nom }}</em></p>
-    <p>Votre prénom : <em>{{ app.user.prenom }}</em></p>
-    <p>Votre adresse email : <em>{{ app.user.email }}</em></p>
-    <p><a href="{{ path('app_logout') }}">Logout</a></p>
+<div class="col-12">
+
+	<div class="card">
+        <h5 class="card-header">
+            Mon compte 
+        </h5>
+        <div class="card-body">
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+            
+        </div>
+    </div>
+
+	<div class="card">
+
+		<h5 class="card-header">
+			Mes annonces:
+		</h5>
+
+	</div>
+</div>
+
+<div class="col-12">
+	<div class="list-group">
+		<!-- Instruction de boucle pour les templates -->
+		{% for item in annonces %}
+		<!-- Code Bootsstrap pour mettre visualiser les annonces -->
+		<a href="{{ path('app_annonce', { 'id': item.id }) }}" class="list-group-item list-group-item-action">
+			<div class="d-flex w-100 justify-content-between">
+				<h5 class="mb-1">{{ item.startplace }} - {{ item.placearrived }}</h5>
+				<small>{{ item.startdate|date('d/m/y H:m') }} - {{ item.arrivalDate|date('d/m/y H:m') }}</small>
+			</div>
+			<p class="mb-1"> {{ item.title }}</p>
+			<small> {{ item.description }}</small>
+
+			<!-- On appelle la route de l'édition-->
+			<a href="{{ path('app_annonce_edit', { 'id': item.id }) }}" class="btn btn-info">Modifier</a>
+		</a>
+		{% endfor %}
+	</div>
+</div>
+
 {% endblock %}

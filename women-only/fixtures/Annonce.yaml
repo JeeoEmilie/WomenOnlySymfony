@@ -1,0 +1,11 @@
+App\Entity\Annonce:
+  annonces{0..50}:
+      startdate: '<dateTime()>'
+      arrivalDate: '<dateTime()>'
+      startplace: '<randomElement(["Clermont-Ferrand", "Royat", "Chamalière", "Beaumont", "Paris"])>'
+      placearrived: '<city()>'
+      transportType: '@transportType*'
+      description: '<text()>'
+      title: '<sentence(8)>'
+      user: '@user*'
+      

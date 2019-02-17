@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="/">
       <img src="{{ asset('images/logo.png') }}" width="110" height="110" class="d-inline-block align-top" alt="">
-      <h1 style="display:inline;">Women Only</h1>
+      <h1 style="display:inline;">{{ 'header.logo'|trans }}</h1>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -9,33 +9,43 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ path('app_home') }}" title="Accueil">Accueil</a>
+          <a class="nav-link" href="{{ path('app_home') }}" title="{{ 'header.accueil.title'|trans }}">{{ 'header.accueil.name'|trans }}</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_comment_ca_marche') }}" title="Comment ça marche !">Comment ça marche !</a>
+          <a class="nav-link" href="{{ path('app_comment_ca_marche') }}" title="{{ 'header.comment.title'|trans }}">{{ 'header.comment.name'|trans }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_proposer') }}" title="Proposer un nouveau trajet">Proposer un trajet</a>
+          <a class="nav-link" href="{{ path('app_proposer') }}" title="{{ 'header.proposer.title'|trans }}">{{ 'header.proposer.name'|trans }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_rechercher') }}" title="Rechercher un trajet">Rechercher un trajet</a>
+          <a class="nav-link" href="{{ path('app_rechercher') }}" title="{{ 'header.rechercher.title'|trans }}">{{ 'header.rechercher.name'|trans }}</a>
         </li>
         {% if app.user == null %}
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_register') }}" title="Vous inscrire">Inscription</a>
+          <a class="nav-link" href="{{ path('app_register') }}" title="{{ 'header.register.title'|trans }}">{{ 'header.register.name'|trans }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_login') }}" title="Vous connecter">Connexion</a>
+          <a class="nav-link" href="{{ path('app_login') }}" title="{{ 'header.login.title'|trans }}">{{ 'header.login.name'|trans }}</a>
         </li>
         {% endif %}
         {% if app.user != null %}
-        <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_profile') }}" title="Mon compte">Mon compte</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ path('app_logout') }}" title="Déconnexion">Déconnexion</a>
-        </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ 'header.profile.name'|trans }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ path('app_profile') }}" title="{{ 'header.profile.title'|trans }}">{{ 'header.profile.name'|trans }}</a>
+
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a class="dropdown-item" href="{{ path('user_index') }}" title="{{ 'header.user.title'|trans }}">{{ 'header.user.name'|trans }}</a>
+
+                    {% endif %}
+
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ path('app_logout') }}" title="{{ 'header.logout.title'|trans }}">{{ 'header.logout.name'|trans }}</a>
+                </div>
+            </li>
         {% endif %}
       </ul>
     </div>
